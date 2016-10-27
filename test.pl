@@ -7,9 +7,7 @@ my $threshold   = 10;
 my $maxElements = (912 / 3)-1;
 
 my $header = <>;
-print "status,$header";
-#my $header2 = <>;
-#print $header2;
+print "$header";
 
 my $i = 0;
 
@@ -21,8 +19,10 @@ while(<>){
 
     my $finished = plusThree(1, \@myValues, \@rows);
     my $theLength = scalar map { $_ > $threshold ? $_ : ()} @$finished;
-	#say join "\t", $i, @$finished if $theLength == $maxElements;
-	say $theLength == $maxElements ? "$i\tpassed\t$_" : "$i\tfailed\t$_";
+
+    #say join "\t", @$finished if $theLength == $maxElements;
+#	say $theLength == $maxElements ? "$i\tpassed\t$_" : "$i\tfailed\t$_";
+	say $_ if $theLength == $maxElements;
 }
 
 
